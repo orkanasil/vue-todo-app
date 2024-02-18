@@ -8,7 +8,7 @@
         </ul>
         <div class="d-flex justify-content-between mt-5">
             <input class="d-inline p-2" v-model="inputText" />
-        <CustomButton :class="'proceed'" @click="addToList">Add to List</CustomButton>
+            <CustomButton :class="'proceed'" @click="addToList">Add to List</CustomButton>
         </div>
     </div>
 </template>
@@ -80,6 +80,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
