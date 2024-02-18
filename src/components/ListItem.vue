@@ -2,24 +2,25 @@
     <li class="w-full d-flex align-items-center justify-content-between mb-2">
         <div class="mt-4" v-if="isEditing && tempId === item.id">
             <input v-model="listItemText" />
-            <button @click="onChange" class="btn btn-success">Update</button>
+            <CustomButton :class="'update'" @click="onChange">Update</CustomButton>
         </div>
         <template v-else>
             <h4 class="m-0">{{ item.text }} </h4>
             <div>
-                <button class="btn btn-danger" @click="$emit('removeFromList', item.id)">
-                    Remove
-                </button>
-                <button class="btn btn-secondary" @click="$emit('editItem', item)">
-                    Edit
-                </button>
+                <CustomButton :class="'danger'" @click="$emit('removeFromList', item.id)">Remove</CustomButton>
+                <CustomButton :class="'edit'" @click="$emit('editItem', item)">Edit</CustomButton>
+
             </div>
         </template>
     </li>
 </template>
 
 <script>
+import CustomButton from './CustomButton.vue'
 export default {
+    components: {
+        CustomButton
+    },
     props: ['item', 'isEditing', 'tempId'],
     data() {
         return {

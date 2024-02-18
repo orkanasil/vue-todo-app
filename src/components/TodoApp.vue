@@ -6,8 +6,10 @@
                 :tempId="tempId" @remove-from-list="removeFromList($event)" @edit-item="editItem($event)"
                 @update="onUpdate($event)" />
         </ul>
-        <input class="mt-4 d-inline p-2" v-model="inputText" />
-        <button class="btn btn-warning" @click="addToList">Add to List</button>
+        <div class="d-flex justify-content-between mt-5">
+            <input class="d-inline p-2" v-model="inputText" />
+        <CustomButton :class="'proceed'" @click="addToList">Add to List</CustomButton>
+        </div>
     </div>
 </template>
 
@@ -15,9 +17,11 @@
 import { mapGetters, mapActions } from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 import ListItem from './ListItem.vue';
+import CustomButton from './CustomButton.vue';
 export default {
     components: {
-        ListItem
+        ListItem,
+        CustomButton,
     },
     data() {
         return {
@@ -76,4 +80,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
