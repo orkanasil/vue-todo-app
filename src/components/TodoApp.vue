@@ -1,11 +1,14 @@
 <template>
-    <h2>List Items</h2>
-    <ul>
-        <ListItem v-for="(listItem, index) in getList" :key="index" :item="listItem" :isEditing="isEditing" :tempId="tempId"
-            @remove-from-list="removeFromList($event)" @edit-item="editItem($event)" @update="onUpdate($event)" />
-    </ul>
-    <input class="mt-4" v-model="inputText" />
-    <button class="btn btn-primary" @click="addToList">Add to List</button>
+    <div class="container" style="width: 400px;">
+        <h2>List Items</h2>
+        <ul>
+            <ListItem v-for="(listItem, index) in getList" :key="index" :item="listItem" :isEditing="isEditing"
+                :tempId="tempId" @remove-from-list="removeFromList($event)" @edit-item="editItem($event)"
+                @update="onUpdate($event)" />
+        </ul>
+        <input class="mt-4 d-inline p-2" v-model="inputText" />
+        <button class="btn btn-warning" @click="addToList">Add to List</button>
+    </div>
 </template>
 
 <script>
