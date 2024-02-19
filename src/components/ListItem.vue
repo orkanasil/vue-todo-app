@@ -1,13 +1,14 @@
 <template>
     <li class="w-full d-flex align-items-center justify-content-between mb-2">
         <div class="mt-4" v-if="isEditing && tempId === item.id">
-            <input v-model="listItemText" />
+            <!-- <input v-model="listItemText" /> -->
+            <CustomInput v-model:value="listItemText" />
             <CustomButton :class="'update'" @click="onChange">Update</CustomButton>
         </div>
         <template v-else>
             <h4 class="m-0">{{ item.text }} </h4>
             <div>
-                <CustomButton :class="'danger'" @click="$emit('removeFromList', item.id)">Remove</CustomButton>
+                <CustomButton :class="'remove'" @click="$emit('removeFromList', item.id)">Remove</CustomButton>
                 <CustomButton :class="'edit'" @click="$emit('editItem', item)">Edit</CustomButton>
 
             </div>
@@ -17,9 +18,11 @@
 
 <script>
 import CustomButton from './CustomButton.vue'
+import CustomInput from './CustomInput.vue'
 export default {
     components: {
-        CustomButton
+        CustomButton,
+        CustomInput
     },
     props: ['item', 'isEditing', 'tempId'],
     data() {
@@ -32,6 +35,7 @@ export default {
             this.$emit('update', {
                 id: this.item.id,
                 text: this.listItemText
+
             })
         },
     },

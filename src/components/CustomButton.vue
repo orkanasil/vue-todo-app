@@ -19,7 +19,7 @@ button {
     color: white;
 }
 
-.danger {
+.remove {
     background-color: rgb(211, 88, 88);
 }
 

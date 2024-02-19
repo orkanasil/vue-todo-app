@@ -1,14 +1,21 @@
+<template>
+  <input type="text" :value="value" @input="$emit('update:value', $event.target.value)" />
+</template>
+
 <script>
+
 export default {
-  props: ['title'],
-  emits: ['update:title']
+  props: ['value'],
+  emits: ['update:value']
 }
+
 </script>
 
-<template>
-  <input
-    type="text"
-    :value="title"
-    @input="$emit('update:title', $event.target.value)"
-  />
-</template>
+
+
+
+
+
+
+
+

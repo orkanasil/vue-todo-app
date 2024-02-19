@@ -7,9 +7,10 @@
                 @update="onUpdate($event)" />
         </ul>
         <div class="d-flex justify-content-between mt-5">
-            <input class="d-inline p-2" v-model="inputText" />
+            <CustomInput v-model:value="inputText" />
             <CustomButton :class="'proceed'" @click="addToList">Add to List</CustomButton>
         </div>
+
     </div>
 </template>
 
@@ -18,10 +19,12 @@ import { mapGetters, mapActions } from 'vuex';
 import { v4 as uuidv4 } from 'uuid';
 import ListItem from './ListItem.vue';
 import CustomButton from './CustomButton.vue';
+import CustomInput from './CustomInput.vue';
 export default {
     components: {
         ListItem,
         CustomButton,
+        CustomInput,
     },
     data() {
         return {
